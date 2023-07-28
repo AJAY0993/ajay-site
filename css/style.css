@@ -1,0 +1,387 @@
+/* Box Model Hack */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*****************************************/
+/*root
+/******************************************/
+
+
+:root {
+  --ff-primary: 'Lato', sans-serif;
+  /* --ff-secondary:; */
+
+  --clr-main-background: #F2F2F0;
+  --clr-main-purple: #9370DB;
+  --clr-main-black: #000;
+  --clr-main-dark-background: #423F3E;
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+
+  --fw-reg: 300;
+  --fw-bold: 600;
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, .25);
+
+  --br: 12px
+}
+
+
+@media (min-width:900px) {
+  :root {
+    --fs-h1: 4rem;
+    --fs-h2: 2.75rem;
+    --fs-h3: 2rem;
+    --fs-body: 1.125rem;
+  }
+}
+
+button {
+  background-color: var(--clr-main-purple);
+  padding: .5em 2em;
+  font-size: var(--fs-h3);
+  color: white;
+  border: none;
+  border-radius: var(--br);
+  box-shadow: var(--bs);
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+svg {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+body {
+  color: #000;
+  background-color: var(--clr-main-background);
+  font-size: var(--fs-body);
+  margin: 0;
+  font-family: var(--ff-primary);
+  line-height: 1.3;
+  padding: 1em 2em;
+}
+
+/* Your existing CSS styles for big screens */
+header {
+  background-color: #f1f1f1;
+  color: var(--clr-main-purple);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: var(--bs);
+  border-radius: 12px;
+}
+
+.logo img {
+  height: 50px;
+  /* Set the height as per your logo size */
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+}
+
+.nav__item {
+  padding: 0 15px;
+}
+
+.nav__item a {
+  color: var(--clr-main-purple);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.socialmedia__list {
+  list-style: none;
+  display: flex;
+}
+
+.socialmedia__item {
+  background-color: white;
+  box-shadow: var(--bs);
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-left: 10px;
+  /* Add some spacing between social media icons */
+}
+
+.socialmedia__item img {
+  max-height: 30px;
+  /* Set the maximum height for social media icons */
+}
+
+/* Hamburger icon styles */
+.nav__toggle {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  /* Your existing CSS styles for small screens */
+  .logo img {
+    height: 40px;
+    /* Set the height as per your logo size for small screens */
+    margin-right: 10px;
+    /* Add some spacing between the logo and the hamburger icon */
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .socialmedia__list {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__item {
+    padding: 10px;
+    text-align: center;
+    /*background-color: #444; /* Add background color for each item in the dropdown */
+  }
+
+  .nav__item a {
+    color: var(--clr-main-purple);
+    font-size: 20px;
+  }
+
+  .nav__item a:hover {
+    color: #444;
+    /* Add a different color on hover if desired */
+    /*background-color: #f1f1f1; /* Change the background color on hover if desired */
+    transform: translateY(-3px);
+    transition: .3s ease;
+  }
+
+  .nav__active {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: var(--clr-main-background);
+    /* Set background color for the dropdown */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: var(--bs);
+  }
+
+}
+
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+
+/* ***********************************************intro************************************* */
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.intro__content,
+.intro__image {
+  max-width: 50%;
+  object-fit: cover;
+  overflow: hidden;
+
+
+}
+
+.intro__image img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.section__title {
+  font-size: var(--fs-h1);
+}
+
+.name,
+.tagline {
+  color: var(--clr-main-purple);
+}
+
+.intro__get-in-touch {
+  font-size: var(--fs-h3);
+}
+
+@media(max-width:1200px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .intro__content,
+  .intro__image {
+    max-width: 100% !important;
+  }
+}
+
+
+
+.socialmedia__item-mobile {
+  background-color: white;
+  box-shadow: var(--bs);
+  border-radius: 10px;
+  padding: 0.5em;
+
+}
+
+.socialmedia__item-mobile img {
+  max-height: 30px;
+  /* Set the maximum height for social media icons */
+}
+
+.socialmedia__list-mobile {
+  display: none;
+
+}
+
+@media (max-width: 768px) {
+  .socialmedia__list-mobile {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 2em;
+    justify-content: center;
+  }
+}
+
+/* *********************************8srcion cards********************************* */
+.my-work {
+  min-height: 100vh;
+}
+
+.section__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+}
+
+.section__project-card {
+  width: 30%;
+  min-width: 300px;
+  flex-wrap: wrap;
+  /* border: 2px solid black; */
+  border-radius: var(--br);
+  padding: 1em 1em;
+  background-color: white;
+  box-shadow: var(--bs);
+
+
+}
+
+/* *****************************about me ************************ */
+.main__about-me {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about-me-content {
+  width: 600px;
+
+  max-width: 100%;
+}
+
+.about-me-image {
+  width: 500px;
+  /* min-width: 500px; */
+  max-width: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* ******************************get-in-touch**************************** */
+.get-in-touch {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 100%;
+  width: 500px;
+
+}
+
+.get-in-touch-image img {
+  max-width: 100%;
+}
+
+input,
+textarea {
+  border: none;
+  background-color: white;
+  border-radius: var(--br);
+  box-shadow: var(--bs);
+  padding: 1em;
+  color: white;
+  width: 100%;
+}
+
+.contact-us {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer {}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
