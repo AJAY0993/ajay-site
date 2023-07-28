@@ -370,7 +370,7 @@ textarea {
   border-radius: var(--br);
   box-shadow: var(--bs);
   padding: 1em;
-  color: white;
+  color: black;
   width: 100%;
 }
 
